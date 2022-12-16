@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS-HANDSON-11</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <h1>JAVA SCRIPT HANDSON-11 <br><span class="arr">Inheritance and Prototype</span></h1>
+
+    <h2>Question 1 : Create 2 objects - parent and child. Attach methods to parent and use those methods in child object using parents prototype
+    </h2>
+    <pre>
+        let parent = {
+            name:'rakesh',
+            age: 22,
+        
+            details(){
+                return (`the name is ${this.name} and age is ${this.age}`)
+            }
+        }
+        let child = {
+        }
+        child.__proto__ = parent
+        console.log(child.details());
+    </pre>
+    <h2>Question 2 : Write code to explain prototype chaining
+    </h2>
+    <pre>
+        function student (name){
+
+            this.sname = name;
+        }
+        
+        student.prototype.sroll = 50;
+        
+        let stu1 = new student('abc');
+        
+        console.log(stu1);        
+    </pre>
+    <h2>Question 3 :Add a method to calculate sum of all elements in Array in array's protype, use that method to calculate sum for multiple arrays
+    </h2>
+    <pre>
+        const array1 = [1,2,3,4,5];
+        const array2 = [6,7,8,9,10];
+        const array3 = [10,20,30,40,50];
+
+        const arraysumobject = {
+            add:function(array){
+                let sum = 0;
+                for(let i = 0; i < array1.length; i++){
+                    sum = sum + array[i];
+                }
+                console.log(sum);
+            }
+        }
+
+        Array.__proto__ = arraysumobject;
+
+        Array.add(array1);
+        Array.add(array2);
+        Array.add(array3);        
+    </pre>
+    <h2>Question 4 :Write a JavaScript function to retrieve all the names of object's own and inherited properties.
+    </h2>
+    <pre>
+        const newobj  = {
+            name:'alex',
+            rollno:50,
+            class:12
+        }
+        
+        let keys = Object.keys(newobj);
+        console.log(keys);        
+    </pre>
+    
+    <script src="./main.js"></script>
+</body>
+</html>
